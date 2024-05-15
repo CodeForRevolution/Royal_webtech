@@ -23,7 +23,7 @@ const Login = () => {
       console.log("called the submit function");
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:4000/api/v1/user/login",
+        "https://royal-webtech-backend.vercel.app/api/v1/user/login",
         formData
       );
       localStorage.setItem("user", JSON.stringify(response.data.data));

@@ -54,8 +54,6 @@ const Dashboard = (props) => {
   };
   const [deleteObject, setDeleteObject] = useState({});
 
-  // const [astrologer, setAstrologer] = useState([]);
-
   const [formDataP, setFormDataP] = useState("");
 
   const dispatch = useDispatch();
@@ -82,7 +80,7 @@ const Dashboard = (props) => {
   async function deleteAstrologer(id) {
     try {
       const reponse = await axios.delete(
-        `http://localhost:4000/api/v1/astrologers/${id}`
+        `https://royal-webtech-backend.vercel.app/api/v1/astrologers/${id}`
       );
       dispatch(removeAstro(id));
     } catch (error) {
@@ -100,7 +98,7 @@ const Dashboard = (props) => {
           };
           const queryString = new URLSearchParams(filters).toString();
           const response = await axios.get(
-            `http://localhost:4000/api/v1/astrologers`
+            `https://royal-webtech-backend.vercel.app/api/v1/astrologers`
           );
           console.log("your Astrologer Data when render", response.data.data);
           dispatch(addBulk(response.data.data));
@@ -126,7 +124,7 @@ const Dashboard = (props) => {
         try {
           console.log("yes it is true");
           const response = await axios.get(
-            "http://localhost:4000/api/v1/astrologers"
+            "https://royal-webtech-backend.vercel.app/api/v1/astrologers"
           );
         } catch (error) {
           console.log("error", error);

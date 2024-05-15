@@ -51,7 +51,7 @@ const CreateAstrologer = (props) => {
       async function GetAstro() {
         try {
           const response = await axios.get(
-            `http://localhost:4000/api/v1/astrologers/${formDataP}`
+            `https://royal-webtech-backend.vercel.app/api/v1/astrologers/${formDataP}`
           );
           setFormData({ ...response.data.data });
           setSpeciality([...response.data.data.speciality]);
@@ -96,13 +96,13 @@ const CreateAstrologer = (props) => {
 
       if (!isUpdate) {
         const response = await axios.post(
-          "http://localhost:4000/api/v1/astrologers/register",
+          "https://royal-webtech-backend.vercel.app/api/v1/astrologers/register",
           formDataToSubmit
         );
          dispatch(addAstro(response.data.data))
       } else {
         const response = await axios.post(
-          `http://localhost:4000/api/v1/astrologers/${formData._id}`,
+          `https://royal-webtech-backend.vercel.app/api/v1/astrologers/${formData._id}`,
           formDataToSubmit
         );
         dispatch(updateAstro(response.data.data))
